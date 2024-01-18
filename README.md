@@ -95,3 +95,11 @@ on the project's root directory:
 ```bash
 docker build -t torque2mqtt:latest .
 ```
+
+
+## References
+
+* This repo is the original for this fork: https://github.com/dlashua/torque2mqtt
+
+Additional references:
+* https://github.com/econpy/torque
