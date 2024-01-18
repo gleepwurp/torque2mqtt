@@ -86,3 +86,12 @@ This should allow segregation of the torque data, per vehicle.
 If the Autodiscovery flag is set to "true" in the configuration file,
 the webserver will automatically generate the required autodiscovery items
 required to generate the corresponding entities in Home-Assistant.
+
+
+## Building the Docker image
+
+on the project's root directory:
+
+```bash
+docker build -t torque2mqtt:latest .
+```
