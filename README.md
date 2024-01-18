@@ -56,3 +56,33 @@ services:
     volumes:
       - ./config:/config
 ```
+
+## How it works
+
+Taking the server IP and port, the application listens for Torque logs sent from
+the android application, provided you have set the http address and port to this
+webserver (Torque --> Settings --> Data Logging & Upload --> Enable Upload to Webserver,
+and update the webserver URL to point to this project's webserver).
+
+As the webserver receives updates from the Torque application on your android device,
+it will parse and send it to the MQTT server you have defined (under mqtt: in your
+config file).
+
+NB: If you wish to do so on the road, you can open up the port to the Internet, so
+  you can upload from your cell phone, or use a proxying/vpn application that is
+  much more secure, such as TailScale, OpenVPN, etc.
+
+## MQTT Organization
+
+The Torque information is organized as follows in MQTT:
+
+torque -- vehicle -- sensor -- <individual topics per sensor>
+
+This should allow segregation of the torque data, per vehicle.
+
+
+## Home-Assistant Discovery option
+
+If the Autodiscovery flag is set to "true" in the configuration file,
+the webserver will automatically generate the required autodiscovery items
+required to generate the corresponding entities in Home-Assistant.
