@@ -7,6 +7,7 @@ import paho.mqtt.client as mqtt
 import json
 import argparse
 import time
+import pprint
 
 ureg = pint.UnitRegistry()
 
@@ -294,5 +295,5 @@ if __name__ == "__main__":
     port = config.get("server", {}).get("port", 5000)
 
     app = web.Application()
-    app.router.add_get("/", process_torque)
+    app.add_routes([web.get('/', process_torque)])
     web.run_app(app, host=host, port=port)
